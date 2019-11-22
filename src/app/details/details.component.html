@@ -1,0 +1,72 @@
+<div  class="container-fluid feed-container">
+    <div class="row justify-content-center">
+        <div class="col-2">
+            <button routerLink="/" mat-fab style="color: beige;"><mat-icon>arrow_back</mat-icon></button>
+        </div>
+        <div class="col-8" *ngIf="data">
+            <div class="row">
+                <div class="col-12">
+                    <h1> {{data.title}}</h1>
+                </div>
+            </div>
+            <div class="row" *ngIf="data.author">
+                <div class="col-12">
+                    <h5> <span>Author: </span>{{data.author}}</h5>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-12">
+                    <div>
+                        <img [src]="data.urlToImage" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-12">
+                    <p>{{data.content}}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <span>Source: <a href="{{data.url}}">{{data.url}}</a></span>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-12" style="margin-top: 50px;">
+                    <h4>Related articles</h4>
+                    <mat-divider></mat-divider>
+                </div>
+                
+            </div>
+            
+            <div class="row">
+                <div class="col-12">
+                    <div *ngFor="let news of relatednews">
+                        <mat-card class="news-card">
+                            <mat-card-header>
+                                <div mat-card-avatar  style="width: 170px; height: 170px;"> <img mat-card-image [src]="news.urlToImage"></div>
+                                <mat-card-title><a [routerLink]="['/feed', news.id]"> {{news.title}}</a></mat-card-title>
+                                <mat-card-subtitle>{{news.author}}, <mat-icon class="time">access_time</mat-icon>{{news.publishedAt | date}}</mat-card-subtitle>
+                                <mat-card-subtitle></mat-card-subtitle>
+                            </mat-card-header>
+                            <mat-card-content>
+                                <p>
+                                    {{news.description}}...
+                                    <a [routerLink]="['/feed', news.id]"> Readmore</a>
+                                </p>
+                            </mat-card-content>
+                            <mat-card-actions>
+                                
+                            </mat-card-actions>
+                        </mat-card>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+</div>

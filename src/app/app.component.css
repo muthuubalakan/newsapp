@@ -1,0 +1,13 @@
+nav {
+    height: 70px;
+    background:  #004a96;
+}
+
+::ng-deep .mat-card-avatar {
+    border-radius: 0% !important;
+    margin-right: 10px;
+}
+
+.news-card {
+    margin: 20px 0px;
+}

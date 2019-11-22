@@ -1,0 +1,83 @@
+  <div class="container-fluid newsfeed-container" >
+    <div class="row justify-content-end" *ngIf="allNews">
+      <div class="col-7">
+        <div class="container-fluid preview">
+          <div class="row">
+            <div class="col-12">
+              <h1> <a [routerLink]="['/feed', data.id]"> {{data.title}}</a></h1>
+            </div>
+          </div>
+          <div class="row" *ngIf="data.author">
+            <div class="col-12">
+              <h5> <span>Author: </span>{{data.author}}</h5>
+            </div>
+          </div>
+          
+          <div class="row">
+            <div class="col-8">
+              <div>
+                <img [src]="data.urlToImage" class="img-fluid">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <div>
+                <p>
+                  {{data.description}}...
+                  <a [routerLink]="['/feed', data.id]"> Readmore</a>
+                </p>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+        
+        <div *ngFor="let news of allNews">
+          <mat-card class="news-card">
+            <mat-card-header>
+              <div mat-card-avatar  style="width: 170px; height: 170px;"> <img mat-card-image [src]="news.urlToImage"></div>
+              <mat-card-title><a [routerLink]="['/feed', news.id]"> {{news.title}}</a></mat-card-title>
+              <mat-card-subtitle>{{news.author}}, <mat-icon class="time">access_time</mat-icon>{{news.publishedAt | date}}</mat-card-subtitle>
+              <mat-card-subtitle></mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+              <p>
+                {{news.description}}...
+                <a [routerLink]="['/feed', news.id]"> Readmore</a>
+              </p>
+            </mat-card-content>
+            <mat-card-actions>
+              
+            </mat-card-actions>
+          </mat-card>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <h3 class="top-story">Top Stories</h3>
+              <mat-divider></mat-divider>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <mat-list>
+                <!-- <h3 mat-subheader>Folders</h3> -->
+                <mat-list-item *ngFor="let story of headlines">
+                  <!-- <mat-icon mat-list-icon>folder</mat-icon> -->
+                  <h3 mat-line >
+                    <a  [routerLink]="['/feed', story.id]">{{story.title}}</a>
+                  </h3 >
+                  <p mat-line> <span *ngIf="story.author"> {{story.author}}, </span> {{story.publishedAt | date}} </p>
+                </mat-list-item>
+                <mat-divider></mat-divider>
+              </mat-list>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
