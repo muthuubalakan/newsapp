@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Newsapp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.6.
@@ -25,3 +26,6 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+=======
+# newsapp
+>>>>>>> 9863af529973bde803bea8184bfb3bc94213cb78
