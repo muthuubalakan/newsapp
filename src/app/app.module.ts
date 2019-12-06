@@ -10,6 +10,7 @@ import { MatStlyleModule } from './mat-stylemodules';
 import { NewsfeedComponent } from './newsfeed/newsfeed.component';
 import { DetailsComponent } from './details/details.component';
 import { ApiServiceService } from './api-service.service';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { ApiServiceService } from './api-service.service';
     HttpClientModule,
     AppRoutingModule,
     MatStlyleModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule
   ],
   providers: [ApiServiceService],
   bootstrap: [AppComponent]

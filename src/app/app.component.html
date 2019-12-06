@@ -8,6 +8,16 @@
                 <div style="margin-left: 50px;">
                     <a routerLink="/"><span class="g-style-span"> <mat-icon style="font-size: 15px; margin-bottom: 5px;">menu_book</mat-icon>NewsApp</span></a>
                 </div>
+                <form class="form-inline" style="width: 70%;">
+                  <input  class="form-control"
+                  [ngModelOptions]="{standalone: true}"
+                  [(ngModel)]="keyword"
+                  style="margin-left: 30px; background-color: #004a96; border-color: #4279b2; color:white; width: 70%;"
+                   type="search" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-outline-primary"
+                  (click)="search()"
+                  style="border-color: #4279b2; color: #a09f9f; margin-left: 10px;">Search</button>
+                </form>
                 </nav>
         </div>
       </div>
@@ -16,7 +26,7 @@
   <div class="main-content">
     <div class="container-fluid h-100">
       <div class="row h-100">
-        <div class="col-md-12">
+        <div class="col-12">
             <router-outlet></router-outlet>
         </div>
       </div>

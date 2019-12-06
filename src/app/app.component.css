@@ -11,3 +11,14 @@ nav {
 .news-card {
     margin: 20px 0px;
 }
+
+.btn:hover{
+   background-color: #004a96; 
+}
+
+@media (max-width: 700px) { 
+
+    .form-inline{
+      visibility: hidden;
+    }
+   }

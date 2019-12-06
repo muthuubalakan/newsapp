@@ -1,8 +1,8 @@
-import { Injectable } from '@angular/core';
+
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable, throwError } from 'rxjs';
 import {catchError, map } from 'rxjs/operators';
-
+import { Injectable, Output, EventEmitter} from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
@@ -10,10 +10,19 @@ import {catchError, map } from 'rxjs/operators';
 
 export class ApiServiceService {
   clckedId: number;
+  @Output() searchKeyword: EventEmitter<any> = new EventEmitter();
 
   url: string = "/api/news";
 
   constructor(private http: HttpClient,) { }
+
+  setKeyword(keyword) {
+    this.searchKeyword.emit(keyword);
+  }
+
+  getKeyword() {
+    return this.searchKeyword;
+  }
 
   setClickedId(id:number){
     this.clckedId = id;
